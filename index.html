@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            // TODO: Add code to check answers to questions
+            document.addEventListener('DOMContentLoaded', function()
+            {
+            let green = document.querySelector('#green');
+            green.addEventListener('click', function()
+            {
+                green.style.backgroundColor = 'green';
+                document.querySelector('#answ').innerHTML = 'Correct!';
+                });
+            let red = document.querySelectorAll('#red');
+                for (let i = 0; i < red.length; i++)
+                {
+                red[i].addEventListener('click', function()
+                {
+                red[i].style.backgroundColor = 'red';
+                document.querySelector('#answ').innerHTML = 'Incorrect!';
+            });
+            }
+
+           document.querySelector('#sub').addEventListener('click', function ()
+           {
+            let input = document.querySelector('input');
+            if (input.value === "Ukraine")
+            {
+                input.style.backgroundColor = 'green';
+                document.querySelector('#answer').innerHTML = 'Correct!';
+            }
+            else
+            {
+                input.style.backgroundColor = 'red';
+                document.querySelector('#answer').innerHTML = 'Incorrect!';
+            }
+            });
+        });
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <!-- TODO: Add multiple choice question here -->
+                <h3>What is the biggest country in Europe?</h3>
+                <button id='red'>France</button>
+                <button id='green'>Ukraine</button>
+                <button id='red'>Poland</button>
+                <button id='red'>Italy</button>
+                <button id='red'>Germany</button>
+                <p id="answ"></p>
+
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <!-- TODO: Add free response question here -->
+                <h3>Who won Eurovision in 2022??</h3>
+                <form>
+                    <input name="q" type="text" autofocus placeholder="Answer">
+                    <input type="submit" id="sub">
+                    <p id="answer"></p>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
